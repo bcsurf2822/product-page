@@ -17,6 +17,7 @@ function App() {
         >
           Learn React
         </a>
+        <h1>This is a test app</h1>
       </header>
     </div>
   );
