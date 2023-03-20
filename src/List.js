@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ProductDetails from "./ProductDetail";
 
 const Page = () => {
   const [products, setProducts] = useState([]);
@@ -25,20 +26,7 @@ const Page = () => {
 
   return (
     <div>
-    {loading ? (
-      <p>Loading data...</p>
-    ) : (
-      <ul>
-        {products.map((item, index) => (
-          <li key={index}>
-            <h3>{item.name}</h3>
-            <p>Price: {item.price}</p>
-            <p>Category: {item.category}</p>
-            <img src={item.image} alt={item.name} />
-          </li>
-        ))}
-      </ul>
-    )}
+    <ProductDetails products={products} load={loading} />
   </div>
   );
 };
