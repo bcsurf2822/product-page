@@ -1,6 +1,12 @@
 import { useState } from "react";
 
-const Nav = () => {
+const Nav = ({onSearch}) => {
+  const [search, setSearch] = useState("");
+
+  const handleSubmit = () => {
+    onSearch(search);
+    console.log(search);
+  }
   return (
     <nav className="navbar bg-body-tertiary">
       <div className="container-fluid">
@@ -16,12 +22,12 @@ const Nav = () => {
           </button>
           <ul className="dropdown-menu">
             <li>
-              <a className="dropdown-item" href="#">
+              <a className="dropdown-item" >
                 Price
               </a>
             </li>
             <li>
-              <a className="dropdown-item" href="#">
+              <a className="dropdown-item">
                 Category
               </a>
             </li>
@@ -30,11 +36,12 @@ const Nav = () => {
         <form className="d-flex" role="search">
           <input
             className="form-control me-2"
-            type="search"
+            type="text"
             placeholder="Product Name"
-            aria-label="Search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           ></input>
-          <button className="btn btn-outline-primary" type="submit">
+          <button className="btn btn-outline-primary" onClick={handleSubmit}>
             Search
           </button>
         </form>
