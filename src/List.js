@@ -12,17 +12,14 @@ const Page = ({ onSearch}) => {
 
 
 
-  async function fetchProducts (query, category) {
+  async function fetchProducts (query, price, category) {
     try {
       const filter = [];
-      if (query && category) {
-        filter.push(`?query=${query}`);
-        filter.push(`?category=${category}`)
-      } else if (query) {
+       if (query) {
         filter.push(`?query=${query}`)
       } else if (category) {
         filter.push(`?category=${category}`)
-      }
+      } else if (price) filter.push(`?price=${price}`)
       const allFilters = filter.length > 0 ? `${filter.join('&')}` : "";
       const response = await fetch(`http://localhost:8000/products${allFilters}`);
       console.log(allFilters)

@@ -11,23 +11,36 @@ const Nav = ({ onSearch, chooseCategory }) => {
     setSearch("");
   };
 
+  // const handlePrice = (price) => {
+  //   fetchProducts(price);
+  // }
+
   const handleCategory = (e) => {
     chooseCategory(e);
     setCategoies(e);
     console.log(e);
   };
   return (
-    <nav className="navbar bg-body-tertiary">
+    <nav className="navbar bg-dark" data-bs-theme="dark">
       <div className="container-fluid">
-        <button className="navbar-brand">Funny Store</button>
-        <div className="dropdown">
+        <h1 className="navtitle navbar-brand">Mongo Store</h1>
+        <button type="button" className="btn btn-success">
+          High-Low
+        </button>
+        <button type="button" className="btn btn-danger">
+          Low-High
+        </button>
+
+        <div className="dropdown" data-bs-theme="dark">
           <button
+            className="navbar-toggler btn btn-outline-primary"
             type="button"
             id="categoryDropdown"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             {category || "Category"}
+            <span className="navbar-toggler-icon"></span>
           </button>
           <ul className="dropdown-menu">
             <li>
