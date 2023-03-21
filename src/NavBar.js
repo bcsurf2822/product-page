@@ -12,127 +12,194 @@ const Nav = ({ onSearch, chooseCategory }) => {
   };
 
   const handleCategory = (e) => {
-    setCategoies(e);
     chooseCategory(e);
+    setCategoies(e);
+    console.log(e);
   };
   return (
     <nav className="navbar bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand">Funny Store</a>
-          <div className="dropdown">
-          <button 
-               type="button"
-               id="categoryDropdown"
-               data-bs-toggle="dropdown"
-               aria-expanded="false">{category || "Category"}</button>
-            <ul className="dropdown-menu">
-              <li>
-                <a onClick ={() => handleCategory("Animal")} className="dropdown-item">
-                  Animals
-                </a>
-              </li>
-              <li>
-                <a value="Automotive" className="dropdown-item">
-                  Automotive
-                </a>
-              </li>
-              <li>
-                <a value="Baby" className="dropdown-item">
-                  Baby
-                </a>
-              </li>
-              <li>
-                <a value="Books" className="dropdown-item">
-                  Books
-                </a>
-              </li>
-              <li>
-                <a value="Clothing" className="dropdown-item">
-                  Clothing
-                </a>
-              </li>
-              <li>
-                <a value="Computers" className="dropdown-item">
-                  Computers
-                </a>
-              </li>
-              <li>
-                <a value="Electronics" className="dropdown-item">
-                  Electronics
-                </a>
-              </li>
-              <li>
-                <a value="Garden" className="dropdown-item">
-                  Garden
-                </a>
-              </li>
-              <li>
-                <a value="Grocery" className="dropdown-item">
-                  Grocery
-                </a>
-              </li>
-              <li>
-                <a value="Health" className="dropdown-item">
-                  Health
-                </a>
-              </li>
-              <li>
-                <a value="Home" className="dropdown-item">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a value="Industrial" className="dropdown-item">
-                  Industrial
-                </a>
-              </li>
-              <li>
-                <a value="Jewelery" className="dropdown-item">
-                  Jewelery
-                </a>
-              </li>
-              <li>
-                <a value="Kids" className="dropdown-item">
-                  Kids
-                </a>
-              </li>
-              <li>
-                <a value="Movies" className="dropdown-item">
-                  Movies
-                </a>
-              </li>
-              <li>
-                <a value="Music" className="dropdown-item">
-                  Music
-                </a>
-              </li>
-              <li>
-                <a value="Outdoors" className="dropdown-item">
-                  Outdoors
-                </a>
-              </li>
-              <li>
-                <a value="Shoes" className="dropdown-item">
-                  Shoes
-                </a>
-              </li>
-              <li>
-                <a value="Sports" className="dropdown-item">
-                  Sports
-                </a>
-              </li>
-              <li>
-                <a value="Tools" className="dropdown-item">
-                  Tools
-                </a>
-              </li>
-              <li>
-                <a value="Toys" className="dropdown-item">
-                  Toys
-                </a>
-              </li>
-            </ul>
-          </div>
+        <button className="navbar-brand">Funny Store</button>
+        <div className="dropdown">
+          <button
+            type="button"
+            id="categoryDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {category || "Category"}
+          </button>
+          <ul className="dropdown-menu">
+            <li>
+              <button
+                onClick={() => handleCategory("Animals")}
+                className="dropdown-item"
+              >
+                Animals
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Automotive")}
+                className="dropdown-item"
+              >
+                Automotive
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Baby")}
+                className="dropdown-item"
+              >
+                Baby
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Books")}
+                className="dropdown-item"
+              >
+                Books
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Clothing")}
+                className="dropdown-item"
+              >
+                Clothing
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Computers")}
+                className="dropdown-item"
+              >
+                Computers
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Electronics")}
+                className="dropdown-item"
+              >
+                Electronics
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Garden")}
+                className="dropdown-item"
+              >
+                Garden
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Grocery")}
+                className="dropdown-item"
+              >
+                Grocery
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Health")}
+                className="dropdown-item"
+              >
+                Health
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Home")}
+                className="dropdown-item"
+              >
+                Home
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Industrial")}
+                className="dropdown-item"
+              >
+                Industrial
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Jewelery")}
+                className="dropdown-item"
+              >
+                Jewelery
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Kids")}
+                className="dropdown-item"
+              >
+                Kids
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Movies")}
+                className="dropdown-item"
+              >
+                Movies
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Music")}
+                className="dropdown-item"
+              >
+                Music
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Outdoors")}
+                className="dropdown-item"
+              >
+                Outdoors
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Shoes")}
+                className="dropdown-item"
+              >
+                Shoes
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Sports")}
+                className="dropdown-item"
+              >
+                Sports
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Tools")}
+                className="dropdown-item"
+              >
+                Tools
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleCategory("Toys")}
+                className="dropdown-item"
+              >
+                Toys
+              </button>
+            </li>
+          </ul>
+        </div>
         <form onSubmit={handleSubmit} className="d-flex" role="search">
           <input
             className="form-control me-2"

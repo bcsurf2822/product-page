@@ -2,22 +2,30 @@ import { useEffect, useState } from "react";
 import Nav from "./NavBar";
 import ProductDetails from "./ProductDetail";
 
-const Page = ({ onSearch, chooseCategory}) => {
+
+
+
+const Page = ({ onSearch}) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [categories, setCategories] = useState("")
+  const [byCategory, setByCategory] = useState("");
+
 
 
   async function fetchProducts (query, category) {
     try {
       const filter = [];
-      if (query) filter.push(`?query=${query}`)
-      
-      if (category) filter.push(`?category=${category}`)
-      
-
-      const allFilters = filter.length > 0 ? `?${filter.join('&')}` : '';
+      if (query && category) {
+        filter.push(`?query=${query}`);
+        filter.push(`?category=${category}`)
+      } else if (query) {
+        filter.push(`?query=${query}`)
+      } else if (category) {
+        filter.push(`?category=${category}`)
+      }
+      const allFilters = filter.length > 0 ? `${filter.join('&')}` : "";
       const response = await fetch(`http://localhost:8000/products${allFilters}`);
+      console.log(allFilters)
       console.log(response)
       const productsData = await response.json();
       const dataArray = productsData.products
@@ -31,9 +39,11 @@ const Page = ({ onSearch, chooseCategory}) => {
     }
   }
 
-  const categoryFunction = (category) => {
-    setCategories(category);
-    fetchProducts("", category);
+  
+
+  const filterByCategory = (category) => {
+    setByCategory(category);
+    fetchProducts("", category, );
   }
 
   useEffect(() => {
@@ -42,7 +52,7 @@ const Page = ({ onSearch, chooseCategory}) => {
 
   return (
     <div>
-    <Nav onSearch={fetchProducts} chooseCategory={categoryFunction} />
+    <Nav onSearch={fetchProducts} chooseCategory={filterByCategory} />
     <ProductDetails products={products} load={loading} />
   </div>
   );
