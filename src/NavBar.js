@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-const Nav = ({ onSearch, chooseCategory }) => {
+const Nav = ({ onSearch, chooseCategory, handlePrice  }) => {
   const [search, setSearch] = useState("");
   const [category, setCategoies] = useState("");
+  const [price, setPrice] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -11,25 +12,28 @@ const Nav = ({ onSearch, chooseCategory }) => {
     setSearch("");
   };
 
-  // const handlePrice = (price) => {
-  //   fetchProducts(price);
-  // }
+  // const priceBtn = (e) => {
+  //   handlePrice(e)
+  //   setPrice(e);
+  //   console.log(e)
+  // };
+
 
   const handleCategory = (e) => {
     chooseCategory(e);
-    setCategoies(e);
-    console.log(e);
+    
   };
+
   return (
     <nav className="navbar bg-dark" data-bs-theme="dark">
       <div className="container-fluid">
         <h1 className="navtitle navbar-brand">Mongo Store</h1>
-        <button type="button" className="btn btn-success">
+        {/* <button onClick={() => priceBtn("highest")} type="button" className="btn btn-success">
           High-Low
         </button>
-        <button type="button" className="btn btn-danger">
+        <button onClick={() => priceBtn("lowest")} type="button" className="btn btn-danger">
           Low-High
-        </button>
+        </button> */}
 
         <div className="dropdown" data-bs-theme="dark">
           <button
@@ -53,7 +57,7 @@ const Nav = ({ onSearch, chooseCategory }) => {
             </li>
             <li>
               <button
-                onClick={() => handleCategory("Automotive")}
+                onClick={(e) => handleCategory("Automotive")}
                 className="dropdown-item"
               >
                 Automotive
@@ -69,7 +73,8 @@ const Nav = ({ onSearch, chooseCategory }) => {
             </li>
             <li>
               <button
-                onClick={() => handleCategory("Books")}
+                value="books"
+                onClick={(e) => setCategoies(e.target.value)}
                 className="dropdown-item"
               >
                 Books

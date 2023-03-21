@@ -5,21 +5,21 @@ import ProductDetails from "./ProductDetail";
 
 
 
-const Page = ({ onSearch}) => {
+const Page = ({ onSearch, chooseCategory}) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [byCategory, setByCategory] = useState("");
+  const [byPrice, setByPrice] = useState("");
 
 
 
   async function fetchProducts (query, price, category) {
     try {
       const filter = [];
-       if (query) {
-        filter.push(`?query=${query}`)
-      } else if (category) {
-        filter.push(`?category=${category}`)
-      } else if (price) filter.push(`?price=${price}`)
+       if (query) filter.push(`?query=${query}`)
+       if (category) filter.push(`?category=${category}`)
+      
+      // if (price) filter.push(`?price=${price}`)
       const allFilters = filter.length > 0 ? `${filter.join('&')}` : "";
       const response = await fetch(`http://localhost:8000/products${allFilters}`);
       console.log(allFilters)
@@ -36,11 +36,13 @@ const Page = ({ onSearch}) => {
     }
   }
 
-  
+  // const filterByPrice = (price) => {
+  //   setByPrice(price)
+  //   fetchProducts("", price)
+  // }
 
   const filterByCategory = (category) => {
-    setByCategory(category);
-    fetchProducts("", category, );
+    fetchProducts(null, null, category, );
   }
 
   useEffect(() => {
