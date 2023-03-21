@@ -3,7 +3,6 @@ import { useState } from "react";
 const Nav = ({ onSearch, chooseCategory, handlePrice  }) => {
   const [search, setSearch] = useState("");
   const [category, setCategoies] = useState("");
-  const [price, setPrice] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,28 +11,26 @@ const Nav = ({ onSearch, chooseCategory, handlePrice  }) => {
     setSearch("");
   };
 
-  // const priceBtn = (e) => {
-  //   handlePrice(e)
-  //   setPrice(e);
-  //   console.log(e)
-  // };
-
+  const priceBtn = (e) => {
+    handlePrice(e)
+    console.log(e)
+  };
 
   const handleCategory = (e) => {
     chooseCategory(e);
-    
+    console.log(e);
   };
 
   return (
     <nav className="navbar bg-dark" data-bs-theme="dark">
       <div className="container-fluid">
         <h1 className="navtitle navbar-brand">Mongo Store</h1>
-        {/* <button onClick={() => priceBtn("highest")} type="button" className="btn btn-success">
+        <button onClick={() => priceBtn("highest")} type="button" className="btn btn-success">
           High-Low
         </button>
         <button onClick={() => priceBtn("lowest")} type="button" className="btn btn-danger">
           Low-High
-        </button> */}
+        </button>
 
         <div className="dropdown" data-bs-theme="dark">
           <button
@@ -43,7 +40,7 @@ const Nav = ({ onSearch, chooseCategory, handlePrice  }) => {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            {category || "Category"}
+            {"Category"}
             <span className="navbar-toggler-icon"></span>
           </button>
           <ul className="dropdown-menu">
@@ -57,7 +54,7 @@ const Nav = ({ onSearch, chooseCategory, handlePrice  }) => {
             </li>
             <li>
               <button
-                onClick={(e) => handleCategory("Automotive")}
+                onClick={() => handleCategory("Automotive")}
                 className="dropdown-item"
               >
                 Automotive

@@ -14,17 +14,12 @@ const ProductDetails = ({products, loading}) => {
     </div>
   )
   return (
-    <div>{loading ? (
-      <p>Page Loading</p>
-    ) : (
     <div className="container">
       <div className="row">
         {products.map((product) => (
           <ProductDetail key={product._id} prod = {product} />
         ))}
       </div>
-    </div>
-    )}
     </div>
     );
 }
